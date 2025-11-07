@@ -1,42 +1,85 @@
 # Simple MNIST Classifier
 
-This project demonstrates a lightweight PyTorch workflow for training and evaluating a handwritten digit classifier on the MNIST dataset. The code automatically downloads the dataset, trains a small neural network on CPU, and provides a basic evaluation script.
+A beginner-friendly PyTorch project that trains and evaluates a convolutional
+neural network on the MNIST handwritten digit dataset. Everything runs on CPU,
+and the dataset is downloaded automatically the first time you launch training
+or evaluation.
 
-## Requirements
+## Features
 
-- Python 3.9 or newer is recommended.
-- Install Python dependencies with:
+- Minimal dependency list (`torch`, `torchvision`, `numpy`)
+- Automatic MNIST download into `data/`
+- Small CNN that reaches >97% accuracy in a few minutes on CPU
+- Separate scripts for training (`src/train.py`) and evaluation (`src/test.py`)
+- Clear, inline comments that explain the most important steps
+
+## Prerequisites
+
+- Python 3.9+ (3.11 works great)
+- `pip` for managing packages
+
+Install the required libraries once:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Training
+## How to Train
+
+Run the training module to download MNIST (if needed) and fit the model:
 
 ```bash
 python -m src.train
 ```
 
-This command will download MNIST (if it is not already present in `data/`), build the model, and run a brief training session on CPU.
+By default this:
 
-## Testing
+- trains for 3 epochs with a batch size of 64,
+- saves the checkpoint to `data/mnist_cnn.pt`,
+- prints training and test accuracy after every epoch.
+
+You can tweak hyperparameters from the command line, e.g.:
+
+```bash
+python -m src.train --epochs 5 --batch-size 128 --learning-rate 5e-4
+```
+
+Additional options:
+
+- `--data-dir`: custom dataset/cache directory (default: `data/`)
+- `--checkpoint-path`: where to save the trained weights (default: `data/mnist_cnn.pt`)
+- `--seed`: control the random seed
+
+## How to Evaluate
+
+Once you have a checkpoint, run:
 
 ```bash
 python -m src.test
 ```
 
-The testing script loads the saved weights from training and reports basic accuracy metrics.
+This loads the saved weights and reports test-set accuracy. Useful flags:
 
-## Project Structure
+- `--data-dir`: must match the directory used during training (defaults to `data/`)
+- `--checkpoint-path`: path to the `.pt` file you want to evaluate
+- `--batch-size`: controls evaluation batch size (256 by default for faster inference)
+
+If the checkpoint is missing, the script reminds you to train the model first.
+
+## Project Layout
 
 ```
-├── requirements.txt
-├── README.md
-├── data/                # Auto-created and populated by the scripts
+├── requirements.txt         # Python dependencies
+├── README.md                # Project documentation (this file)
+├── data/                    # Auto-created; stores MNIST & checkpoints
 ├── src/
-│   ├── model.py
-│   ├── train.py
-│   └── test.py
+│   ├── model.py             # CNN definition
+│   ├── train.py             # Training loop + CLI
+│   └── test.py              # Evaluation script + CLI
 ```
 
-Each source file is extensively commented to highlight the most important steps for beginners.
+## Next Steps
+
+- Try experimenting with the network architecture in `src/model.py`
+- Adjust training epochs or learning rate to push accuracy higher
+- Extend `src/test.py` to produce confusion matrices or save predictions
