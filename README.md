@@ -5,8 +5,8 @@ neural network on the MNIST handwritten digit dataset. Everything runs on CPU,
 and the dataset is downloaded automatically the first time you launch training
 or evaluation.
 
-## Features
-
+## Features 
+ 
 - Minimal dependency list (`torch`, `torchvision`, `numpy`)
 - Automatic MNIST download into `data/`
 - Small CNN that reaches >97% accuracy in a few minutes on CPU
