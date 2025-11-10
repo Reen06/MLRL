@@ -5,7 +5,7 @@ Lightweight Python CLI for routing natural language inputs to configurable outco
 ## Features
 
 - CLI menu for classifying text, managing outcomes, examples, and synonym lists
-- Config-driven design with all outcomes stored in `config/outcomes.json`
+- Config-driven design with outcomes stored as individual files under `config/outcomes/`
 - Normalization pipeline performs lowercasing, simple lemmatization, synonym expansion, and fuzzy spell correction
 - Teach mode captures unknown requests and lets you assign or create outcomes on the fly
 - Lightweight dependency footprint (`scikit-learn`) and no external services
@@ -19,7 +19,7 @@ pip install scikit-learn
 python src/cli.py
 ```
 
-The first run creates `config/outcomes.json` if it is missing. A sample “food expiration” outcome is included for reference.
+The first run ensures `config/settings.json` and an `config/outcomes/` directory exist. A sample “food expiration” outcome file is included for reference.
 
 ## Docker
 
@@ -47,61 +47,61 @@ Run these commands from the project root (`MLRL` directory):
 
 ## Config Structure
 
-`config/outcomes.json` contains:
+Configuration lives in the `config/` directory:
 
-- `outcomes`: array of outcome objects with:
+- `config/outcomes/` – one JSON file per outcome. Each file includes:
   - `id`, `label`, `action` metadata for downstream scripts
   - `synonyms` and `spell_variants` to guide normalization
   - `examples` (text plus optional key/value labels)
   - `teach_hint` shown during teach mode
-- `teach_mode`: thresholds and prompts for unknown handling
+- `config/settings.json` – global settings such as `teach_mode` thresholds and prompts.
 
-Copy this file to share the learned outcomes with other deployments.
+Copy the outcomes directory (and settings, if desired) to share the learned outcomes with other deployments.
 
 ## Example
 
-Sample entry in the default config:
+Sample outcome file (`config/outcomes/food_expiration.json`):
 
-```startLine:endLine:config/outcomes.json
+```1:33:config/outcomes/food_expiration.json
+{
+  "id": "food_expiration",
+  "label": "Food Expiration Tracking",
+  "synonyms": [
+    "expiration",
+    "expires",
+    "expiry",
+    "goes bad",
+    "spoils"
+  ],
+  "spell_variants": [
+    "expries",
+    "expiraton"
+  ],
+  "action": {
+    "type": "food_expiration",
+    "fields": [
+      "item",
+      "expires_on"
+    ]
+  ],
+  "examples": [
     {
-      "id": "food_expiration",
-      "label": "Food Expiration Tracking",
-      "synonyms": [
-        "expiration",
-        "expires",
-        "expiry",
-        "goes bad",
-        "spoils"
-      ],
-      "spell_variants": [
-        "expries",
-        "expiraton"
-      ],
-      "action": {
-        "type": "food_expiration",
-        "fields": [
-          "item",
-          "expires_on"
-        ]
-      ],
-      "examples": [
-        {
-          "text": "I bought a new jug of milk that expires in two weeks.",
-          "labels": {
-            "item": "milk",
-            "expires_in": "two weeks"
-          }
-        },
-        {
-          "text": "These eggs go bad on Friday.",
-          "labels": {
-            "item": "eggs",
-            "expires_on": "Friday"
-          }
-        }
-      ],
-      "teach_hint": "Collect expiration info for groceries."
+      "text": "I bought a new jug of milk that expires in two weeks.",
+      "labels": {
+        "item": "milk",
+        "expires_in": "two weeks"
+      }
+    },
+    {
+      "text": "These eggs go bad on Friday.",
+      "labels": {
+        "item": "eggs",
+        "expires_on": "Friday"
+      }
     }
+  ],
+  "teach_hint": "Collect expiration info for groceries."
+}
 ```
 
 Extend the config with more outcomes (e.g., bill reminders, maintenance tasks) and add examples using the CLI to improve accuracy.

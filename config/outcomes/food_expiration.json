@@ -1,0 +1,40 @@
+{
+  "id": "food_expiration",
+  "label": "Food Expiration Tracking",
+  "synonyms": [
+    "expiration",
+    "expires",
+    "expiry",
+    "goes bad",
+    "spoils"
+  ],
+  "spell_variants": [
+    "expries",
+    "expiraton"
+  ],
+  "action": {
+    "type": "food_expiration",
+    "fields": [
+      "item",
+      "expires_on"
+    ]
+  },
+  "examples": [
+    {
+      "text": "I bought a new jug of milk that expires in two weeks.",
+      "labels": {
+        "item": "milk",
+        "expires_in": "two weeks"
+      }
+    },
+    {
+      "text": "These eggs go bad on Friday.",
+      "labels": {
+        "item": "eggs",
+        "expires_on": "Friday"
+      }
+    }
+  ],
+  "teach_hint": "Collect expiration info for groceries."
+}
+
