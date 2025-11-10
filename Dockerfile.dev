@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Install runtime dependencies upfront; project files will be volume-mounted at runtime.
+RUN pip install --no-cache-dir scikit-learn
+
+# Expect the repository to be mounted into /app when the container starts.
+CMD ["python", "src/cli.py"]
+

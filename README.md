@@ -21,6 +21,24 @@ python src/cli.py
 
 The first run creates `config/outcomes.json` if it is missing. A sample “food expiration” outcome is included for reference.
 
+## Docker
+
+Run these commands from the project root (`MLRL` directory):
+
+- Development container (mounts your local code into the container so changes reflect immediately):
+
+  ```bash
+  docker build -f Dockerfile.dev -t nlp-router-dev .
+  docker run -it --rm -v ${PWD}:/app nlp-router-dev
+  ```
+
+- Shareable image (packages the entire project into the image):
+
+  ```bash
+  docker build -t nlp-router .
+  docker run -it --rm nlp-router
+  ```
+
 ## Workflow
 
 1. **Classify text** – enter natural language (e.g., “My yogurt goes bad next Monday”). If confidence is high, the matching outcome is shown.
