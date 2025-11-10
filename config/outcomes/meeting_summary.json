@@ -1,0 +1,43 @@
+{
+  "id": "meeting_summary",
+  "label": "Meeting Summary",
+  "synonyms": [
+    "meeting notes",
+    "summarize meeting",
+    "meeting recap",
+    "discussion summary",
+    "call notes"
+  ],
+  "spell_variants": [
+    "meting",
+    "summery"
+  ],
+  "action": {
+    "type": "meeting_summary",
+    "fields": [
+      "topic",
+      "date",
+      "next_steps"
+    ]
+  },
+  "examples": [
+    {
+      "text": "Summarize yesterday's product sync and list the next actions.",
+      "labels": {
+        "topic": "product sync",
+        "date": "yesterday",
+        "next_steps": "list next actions"
+      }
+    },
+    {
+      "text": "Create meeting notes for the client call on Monday including follow ups.",
+      "labels": {
+        "topic": "client call",
+        "date": "Monday",
+        "next_steps": "follow ups"
+      }
+    }
+  ],
+  "teach_hint": "Capture summaries and action items from meetings."
+}
+

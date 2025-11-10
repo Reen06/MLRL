@@ -1,0 +1,45 @@
+{
+  "id": "fitness_tracking",
+  "label": "Fitness Tracking",
+  "synonyms": [
+    "track workout",
+    "log exercise",
+    "fitness goal",
+    "workout plan",
+    "exercise log"
+  ],
+  "spell_variants": [
+    "fittness",
+    "excersise"
+  ],
+  "action": {
+    "type": "fitness_tracking",
+    "fields": [
+      "activity",
+      "duration",
+      "intensity",
+      "time"
+    ]
+  },
+  "examples": [
+    {
+      "text": "Record a 30 minute run at moderate intensity tonight.",
+      "labels": {
+        "activity": "run",
+        "duration": "30 minutes",
+        "intensity": "moderate",
+        "time": "tonight"
+      }
+    },
+    {
+      "text": "Log a strength workout for tomorrow focusing on legs.",
+      "labels": {
+        "activity": "strength workout",
+        "time": "tomorrow",
+        "intensity": "leg focus"
+      }
+    }
+  ],
+  "teach_hint": "Capture planned or completed workouts."
+}
+

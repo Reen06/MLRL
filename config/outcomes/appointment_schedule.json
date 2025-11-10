@@ -1,0 +1,43 @@
+{
+  "id": "appointment_schedule",
+  "label": "Appointment Scheduling",
+  "synonyms": [
+    "schedule appointment",
+    "book appointment",
+    "set meeting",
+    "arrange appointment",
+    "doctor appointment"
+  ],
+  "spell_variants": [
+    "appointmant",
+    "apointment"
+  ],
+  "action": {
+    "type": "appointment_schedule",
+    "fields": [
+      "subject",
+      "date",
+      "time"
+    ]
+  },
+  "examples": [
+    {
+      "text": "Set up a dentist appointment for April 18th at 9am.",
+      "labels": {
+        "subject": "dentist",
+        "date": "April 18th",
+        "time": "9am"
+      }
+    },
+    {
+      "text": "Book a lunch meeting with Sarah next Tuesday at noon.",
+      "labels": {
+        "subject": "lunch meeting with Sarah",
+        "date": "next Tuesday",
+        "time": "noon"
+      }
+    }
+  ],
+  "teach_hint": "Arrange upcoming appointments with dates and times."
+}
+

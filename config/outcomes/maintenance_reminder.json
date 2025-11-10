@@ -1,0 +1,41 @@
+{
+  "id": "maintenance_reminder",
+  "label": "Maintenance Reminder",
+  "synonyms": [
+    "maintenance",
+    "service reminder",
+    "upkeep",
+    "repair reminder",
+    "tune up"
+  ],
+  "spell_variants": [
+    "maintenence",
+    "maintnance"
+  ],
+  "action": {
+    "type": "maintenance_reminder",
+    "fields": [
+      "asset",
+      "due_on",
+      "notes"
+    ]
+  },
+  "examples": [
+    {
+      "text": "Schedule a tune up for the car this Saturday.",
+      "labels": {
+        "asset": "car",
+        "due_on": "this Saturday"
+      }
+    },
+    {
+      "text": "Remind me to replace the HVAC filter every three months.",
+      "labels": {
+        "asset": "HVAC filter",
+        "notes": "every three months"
+      }
+    }
+  ],
+  "teach_hint": "Keep track of recurring maintenance tasks."
+}
+

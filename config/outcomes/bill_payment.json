@@ -1,0 +1,42 @@
+{
+  "id": "bill_payment",
+  "label": "Bill Payment Reminder",
+  "synonyms": [
+    "bill payment",
+    "pay bill",
+    "pay invoice",
+    "bill due",
+    "invoice payment"
+  ],
+  "spell_variants": [
+    "bill paymant",
+    "invoice paymnt"
+  ],
+  "action": {
+    "type": "bill_payment",
+    "fields": [
+      "vendor",
+      "due_date",
+      "amount"
+    ]
+  },
+  "examples": [
+    {
+      "text": "My electric bill for $85 is due on the 12th.",
+      "labels": {
+        "vendor": "electric company",
+        "due_date": "12th",
+        "amount": "$85"
+      }
+    },
+    {
+      "text": "Remind me to pay the water invoice next Friday.",
+      "labels": {
+        "vendor": "water utility",
+        "due_date": "next Friday"
+      }
+    }
+  ],
+  "teach_hint": "Track upcoming bill payments and amounts."
+}
+

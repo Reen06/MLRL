@@ -1,0 +1,42 @@
+{
+  "id": "support_ticket",
+  "label": "Support Ticket",
+  "synonyms": [
+    "support request",
+    "help ticket",
+    "customer issue",
+    "open ticket",
+    "tech support"
+  ],
+  "spell_variants": [
+    "suport ticket",
+    "custmer issue"
+  ],
+  "action": {
+    "type": "support_ticket",
+    "fields": [
+      "customer",
+      "priority",
+      "issue"
+    ]
+  },
+  "examples": [
+    {
+      "text": "Create a high priority ticket for Alice about login failures.",
+      "labels": {
+        "customer": "Alice",
+        "priority": "high",
+        "issue": "login failures"
+      }
+    },
+    {
+      "text": "Open a support request for Contoso regarding billing discrepancies.",
+      "labels": {
+        "customer": "Contoso",
+        "issue": "billing discrepancies"
+      }
+    }
+  ],
+  "teach_hint": "Log incoming support issues with customer context."
+}
+

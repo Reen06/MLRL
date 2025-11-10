@@ -1,0 +1,43 @@
+{
+  "id": "budget_update",
+  "label": "Budget Update",
+  "synonyms": [
+    "update budget",
+    "adjust budget",
+    "budget change",
+    "revise spending",
+    "budget plan"
+  ],
+  "spell_variants": [
+    "budjet",
+    "budget updte"
+  ],
+  "action": {
+    "type": "budget_update",
+    "fields": [
+      "category",
+      "amount",
+      "period"
+    ]
+  },
+  "examples": [
+    {
+      "text": "Increase the grocery budget by $40 for February.",
+      "labels": {
+        "category": "grocery",
+        "amount": "$40",
+        "period": "February"
+      }
+    },
+    {
+      "text": "Lower entertainment spending to $100 next month.",
+      "labels": {
+        "category": "entertainment",
+        "amount": "$100",
+        "period": "next month"
+      }
+    }
+  ],
+  "teach_hint": "Adjust budget categories and planned amounts."
+}
+

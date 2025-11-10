@@ -1,0 +1,42 @@
+{
+  "id": "travel_booking",
+  "label": "Travel Booking",
+  "synonyms": [
+    "book travel",
+    "flight booking",
+    "reserve trip",
+    "travel plans",
+    "book flight"
+  ],
+  "spell_variants": [
+    "travel bokking",
+    "traval booking"
+  ],
+  "action": {
+    "type": "travel_booking",
+    "fields": [
+      "destination",
+      "depart_on",
+      "return_on"
+    ]
+  },
+  "examples": [
+    {
+      "text": "Book a flight to Denver leaving on March 4th and returning the 10th.",
+      "labels": {
+        "destination": "Denver",
+        "depart_on": "March 4th",
+        "return_on": "March 10th"
+      }
+    },
+    {
+      "text": "I need to reserve a trip to Toronto in mid July.",
+      "labels": {
+        "destination": "Toronto",
+        "depart_on": "mid July"
+      }
+    }
+  ],
+  "teach_hint": "Capture travel destinations and dates."
+}
+
