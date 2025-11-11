@@ -39,6 +39,17 @@ Run these commands from the project root (`MLRL` directory):
   docker run -it --rm nlp-router
   ```
 
+## Model Training
+
+For an end-to-end example of training a lightweight classifier in plain PyTorch (no Hugging Face dependencies), check `model_training/`. The scripts there:
+
+- turn the outcome examples into a minimal dataset (`prepare_simple_dataset.py`)
+- train a small feed-forward network (`train_simple_model.py`)
+- evaluate saved checkpoints (`evaluate_simple_model.py`)
+
+See `model_training/README.md` for the 3-command quick start.
+For a production-scale checklist—including large synthetic dataset generation and 1000-epoch training—refer to `GOING_FORWARD.md`.
+
 ## Workflow
 
 1. **Classify text** – enter natural language (e.g., “My yogurt goes bad next Monday”). If confidence is high, the matching outcome is shown.

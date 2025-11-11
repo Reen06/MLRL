@@ -1,0 +1,7 @@
+# Ignore checkpoints by default
+*.pt
+*.pth
+*.metrics.json
+
+!README.md
+

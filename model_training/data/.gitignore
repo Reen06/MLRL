@@ -1,0 +1,6 @@
+# Ignore generated dataset shards
+*.jsonl
+simple_vocab.json
+
+!README.md
+
